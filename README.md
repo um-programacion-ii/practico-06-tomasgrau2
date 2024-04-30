@@ -7,10 +7,14 @@ Cuando un Paciente inicia un Turno con un médico debe permanecer hasta terminar
 Una vez que el Paciente finaliza el Turno está en condiciones de concurrir a la Farmacia si es que el Medico le entregó una Receta.
 El Paciente debe iniciar y finalizar una Compra para comprar sus Medicamento's. La cantidad de Medicamento's en la Farmacia es infinito.
 
+
 Anexo
+
 La Farmacia tiene un Stock, en el caso que algún Medicamento no esté debe ser solicitado a la Drogueria. En este caso la Drogueria tiene stock infinito. Para esto debe hacerse el proceso iniciar y finalizar Pedido.
 
+
 Comentarios de diseño
+
 . Deben existir al menos 2 ObraSocial'es
 . Deben existir al menos 4 Medico's por ObraSocial
 . Algunos de esos Medico's atienden en forma particular
@@ -27,7 +31,9 @@ Comentarios de diseño
 . En general los objetos deberán instanciarse en el contenedor mencionado y ser inyectados donde sea necesario que sean manipulados.
 . Las clases Service deberán implementar el patrón Singleton para asegurar una única existencia.
 
+
 Algunas funcionalidades pedidas
+
 . Se debe poder listar todos los médicos cuando se pide un turno particular
 . Se debe poder listar los médicos de una especialidad indicando la obra social que atienden
 . La cantidad y los medicamentos indicados en la Receta surgirán aleatoriamente siendo una opción no obtener una receta
