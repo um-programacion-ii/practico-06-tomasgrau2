@@ -1,5 +1,8 @@
 package com.tomas_grau.Servicios;
 
+import com.tomas_grau.Dao.MedicoDao;
+import com.tomas_grau.Dao.RecetaDao;
+import com.tomas_grau.Entidades.Receta;
 import com.tomas_grau.Entidades.Turno;
 
 import java.util.ArrayList;
@@ -7,6 +10,7 @@ import java.util.List;
 import java.util.Random;
 
 public class AtencionMedicoService {
+    private RecetaDao recetaDao = RecetaDao.getInstance();
 
     public AtencionMedicoService(){
     }
@@ -39,13 +43,12 @@ public class AtencionMedicoService {
             // Crear una nueva lista con medicamentos seleccionados al azar
             List<String> medicamentosAleatorios = seleccionarMedicamentosAleatorios(medicamentos, numeroAleatorio);
 
-            System.out.println("Medicamentos seleccionados al azar:");
-            for (String med : medicamentosAleatorios) {
-                System.out.println("- " + med);
-            }
+            Receta receta = new Receta(medicamentosAleatorios, turno.getPaciente_id());
+            recetaDao.create_receta(turno.getTurno_id(), receta);
+            System.out.println("Se creo una receta");
         }
         else {
-            System.out.println("El medico atendio al paciente con número de turno" + turno.getTurno_id());
+            System.out.println("El medico atendio al paciente con número de turno " + turno.getTurno_id());
         }
     }
 
@@ -62,7 +65,6 @@ public class AtencionMedicoService {
             resultado.add(listaOriginal.get(indiceAleatorio));
             listaOriginal.remove(indiceAleatorio); // Evitar duplicados
         }
-
         return resultado;
     }
 

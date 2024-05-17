@@ -24,6 +24,10 @@ public class TurnoDao {
             turnos.put(turno_id, turno);
     }
 
+    public Turno get(int turno_id) {
+        return turnos.get(turno_id);
+    }
+
 
 
 }

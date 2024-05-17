@@ -7,7 +7,6 @@ import com.tomas_grau.Entidades.Paciente;
 import com.tomas_grau.Entidades.Turno;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Objects;
 
 public class GestionTurnoService {
