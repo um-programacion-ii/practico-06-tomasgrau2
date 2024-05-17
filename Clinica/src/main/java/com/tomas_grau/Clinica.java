@@ -1,7 +1,9 @@
 package com.tomas_grau;
 
+import com.tomas_grau.Dao.MedicoDao;
 import com.tomas_grau.Entidades.Medico;
-import com.tomas_grau.Entidades.ObraSocial;
+import com.tomas_grau.Entidades.Paciente;
+import com.tomas_grau.Servicios.GestionTurnoService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,20 +11,23 @@ import java.util.List;
 
 public class Clinica {
     public static void main(String[] args) {
-        Medico eusebio_medico = new Medico("Eusebio", "Fernández", "Cardiólogo");
-        Medico carlos_medico = new Medico("Carlos", "Medicina","Urólogo");
+        List<String> obra_sociales = new ArrayList<>();
+        obra_sociales.add("particular");
+
+        Medico eusebio_medico = new Medico("Eusebio", "Fernández", "Cardiólogo",1,obra_sociales);
+        Medico carlos_medico = new Medico("Carlos", "Medicina","Urólogo",2,obra_sociales);
+
+        MedicoDao medicodao = MedicoDao.getInstance();
+
+        medicodao.create(1,eusebio_medico);
+        medicodao.create(2,carlos_medico);
+
+        GestionTurnoService gestionTurnoService = new GestionTurnoService();
+        gestionTurnoService.solicitarTurno("Cardiólogo",new Paciente("Carlos", "Garcia", "sexo", 1));
 
 
-        List<Medico> lista_medico1 = new ArrayList<>();
-        lista_medico1.add(eusebio_medico);
-        lista_medico1.add(carlos_medico);
-
-        List<Medico> lista_medico2 = new ArrayList<>();
-        lista_medico1.add(maria_medico);
 
 
-        ObraSocial obrasocial_1 = new ObraSocial("OSEP",lista_medico1);
-        ObraSocial obrasocial_2 = new ObraSocial("DAMSU",lista_medico2);
 
 
 
