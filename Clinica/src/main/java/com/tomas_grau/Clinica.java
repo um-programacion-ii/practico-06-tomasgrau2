@@ -23,7 +23,7 @@ public class Clinica {
         medicodao.create(2,carlos_medico);
 
         GestionTurnoService gestionTurnoService = new GestionTurnoService();
-        gestionTurnoService.solicitarTurno("Cardiólogo",new Paciente("Carlos", "Garcia", "sexo", 1));
+        gestionTurnoService.solicitarTurno("Cardiólogo",new Paciente("Carlos", "Garcia", "particular", 1));
 
 
 
